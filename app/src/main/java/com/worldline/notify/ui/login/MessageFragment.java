@@ -1,23 +1,10 @@
 package com.worldline.notify.ui.login;
 
-import android.app.SearchManager;
 import android.content.Context;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.widget.SearchView;
-import androidx.core.view.MenuItemCompat;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
@@ -30,8 +17,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.worldline.notify.R;
-import com.worldline.notify.data.Notifications;
 import com.worldline.notify.data.NotificationAdapter;
+import com.worldline.notify.data.Notifications;
 import com.worldline.notify.utility.Config;
 
 import org.json.JSONArray;
@@ -42,6 +29,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -110,7 +103,12 @@ public class MessageFragment extends Fragment {
         }
 
     }
-    private void getNotifications(final int userid, final String project,final int adapterChangeFlag, final int offset) {
+
+    public void searchMessage(String searchKey) {
+        Toast.makeText(getContext(), "Search Called", Toast.LENGTH_LONG).show();
+    }
+
+    private void getNotifications(final int userid, final String project, final int adapterChangeFlag, final int offset) {
         Log.d("Function Open", "getNotifications");
         try {
             final Context context = getActivity().getApplicationContext();
@@ -126,7 +124,7 @@ public class MessageFragment extends Fragment {
                                 if (error.equals(false)) {
                                     JSONArray notifications = res.getJSONArray("message");
                                     if (notifications != null) {
-                                        appendToAdapter(notifications,adapterChangeFlag);
+                                        appendToAdapter(notifications, adapterChangeFlag);
                                     } else {
                                         Toast.makeText(context, "No Nofications", Toast.LENGTH_LONG).show();
                                     }
@@ -181,10 +179,10 @@ public class MessageFragment extends Fragment {
                 );
                 rowItems.add(item);
             }
-            if(adapterChangeFlag == 1){
+            if (adapterChangeFlag == 1) {
                 notificationAdapter.notifyDataSetChanged();
                 isLoading = false;
-            }else{
+            } else {
                 setData(rowItems);
             }
         } catch (JSONException e) {
@@ -260,7 +258,7 @@ public class MessageFragment extends Fragment {
                 rowItems.remove(rowItems.size() - 1);
                 int scrollPosition = rowItems.size();
                 notificationAdapter.notifyItemRemoved(scrollPosition);
-                getNotifications(userid, project,1, rowItems.size());
+                getNotifications(userid, project, 1, rowItems.size());
             }
         });
     }
@@ -281,7 +279,6 @@ public class MessageFragment extends Fragment {
         getNotifications(userid, project, 0, 0);
         return rootView;
     }
-
 
 
 }

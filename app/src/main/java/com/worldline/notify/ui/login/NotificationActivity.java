@@ -9,17 +9,19 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.MenuItemCompat;
-import androidx.viewpager.widget.ViewPager;
-
 import com.google.android.material.tabs.TabLayout;
 import com.worldline.notify.R;
 import com.worldline.notify.data.Device;
 import com.worldline.notify.data.PagerAdapter;
 import com.worldline.notify.data.SharedPrefManager;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.MenuItemCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 public class NotificationActivity extends AppCompatActivity {
     private int userid;
@@ -70,14 +72,15 @@ public class NotificationActivity extends AppCompatActivity {
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
             }
+
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
             }
+
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
             }
         });
-
 
 
     }
@@ -94,7 +97,7 @@ public class NotificationActivity extends AppCompatActivity {
         if (searchView != null) {
             searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
 
-            SearchView.OnQueryTextListener   queryTextListener = new SearchView.OnQueryTextListener() {
+            SearchView.OnQueryTextListener queryTextListener = new SearchView.OnQueryTextListener() {
                 @Override
                 public boolean onQueryTextChange(String newText) {
                     return true;
@@ -103,7 +106,11 @@ public class NotificationActivity extends AppCompatActivity {
                 @Override
                 public boolean onQueryTextSubmit(String query) {
                     Log.i("onQueryTextSubmit", query);
-                    tabLayout.getSelectedTabPosition();
+                    Fragment currentFragment = ((FragmentStatePagerAdapter) viewPager.getAdapter())
+                            .getItem(tabLayout.getSelectedTabPosition());
+                    if (currentFragment instanceof MessageFragment) {
+                        ((MessageFragment) currentFragment).searchMessage(query);
+                    }
                     return true;
                 }
             };
@@ -115,7 +122,7 @@ public class NotificationActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        switch(item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.menuAbout:
                 Toast.makeText(this, "Coming Soon!!!", Toast.LENGTH_SHORT).show();
                 break;
