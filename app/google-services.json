@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "68515050305",
+    "firebase_url": "https://wlnotify.firebaseio.com",
+    "project_id": "wlnotify",
+    "storage_bucket": "wlnotify.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:68515050305:android:3fd36237d9473ee271a7c0",
+        "android_client_info": {
+          "package_name": "com.worldline.notify"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "68515050305-iq8peedgt10culno1vlll70pe1jj996p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcSgjYRVq-JjiTQeMZLwxTxDYFgD9F_Wk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "68515050305-iq8peedgt10culno1vlll70pe1jj996p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

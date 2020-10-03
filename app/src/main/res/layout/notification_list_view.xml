@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginBottom="5dp">
+
+    <TextView
+        android:id="@+id/textTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:paddingRight="5dp"
+        android:text="5.45 pm"
+        android:textAlignment="textEnd"
+        android:textColor="@color/notification_time"
+        android:textSize="11dp" />
+
+    <TextView
+        android:id="@+id/textMsg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textTime"
+        android:textIsSelectable="true"
+        android:background="@drawable/rounded_corners"
+        android:padding="10dp"
+        android:text="MMSFE::UATFailure
+        Still waiting for MMSBE Held Sync DFD"
+        android:textColor="#000"
+        android:textSize="16dp" />
+
+
+</RelativeLayout>

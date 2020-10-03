@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "184639941739",
+    "firebase_url": "https://wlnotify-2c7ee.firebaseio.com",
+    "project_id": "wlnotify-2c7ee",
+    "storage_bucket": "wlnotify-2c7ee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:184639941739:android:7025325ae9255bb911152e",
+        "android_client_info": {
+          "package_name": "com.worldline.notify"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "184639941739-76b7fnj76a9nc338s1m1kqo82lj2ropl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.worldline.notify",
+            "certificate_hash": "1ee888c6b17c7537d438b2aea2c4f76d31a179e1"
+          }
+        },
+        {
+          "client_id": "184639941739-nqkao6t4nt6ggbv7v92cs69jlbqcqm37.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUlj0nRLQKO-tNxET2PPazS88wWmsyDnE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "184639941739-nqkao6t4nt6ggbv7v92cs69jlbqcqm37.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
