@@ -102,9 +102,7 @@ public class MessageFragment extends Fragment {
         Log.d("searchMessage", searchKey);
         rowItems = new ArrayList<Notifications>();
         this.qStr = searchKey;
-        if(isVisible()){
-            getNotifications(userid, project, 0, 0);
-        }
+        getNotifications(userid, project, 0, 0);
     }
 
     private void getNotifications(final int userid, final String project, final int adapterChangeFlag, final int offset) {

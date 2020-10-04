@@ -1,18 +1,29 @@
 package com.worldline.notify.data;
 
+import android.view.ViewGroup;
+
+import com.worldline.notify.ui.login.MessageFragment;
+
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
-import com.worldline.notify.ui.login.MessageFragment;
-
 public class PagerAdapter extends FragmentStatePagerAdapter {
 
     int mNumOfTabs;
+
     public PagerAdapter(FragmentManager fm, int NumOfTabs) {
         super(fm);
         this.mNumOfTabs = NumOfTabs;
     }
+
+    @NonNull
+    @Override
+    public Fragment instantiateItem(@NonNull ViewGroup container, int position) {
+        return (Fragment) super.instantiateItem(container, position);
+    }
+
     @Override
     public Fragment getItem(int position) {
         switch (position) {
@@ -26,6 +37,7 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
                 return null;
         }
     }
+
     @Override
     public int getCount() {
         return mNumOfTabs;

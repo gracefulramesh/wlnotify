@@ -20,7 +20,6 @@ import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.MenuItemCompat;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 public class NotificationActivity extends AppCompatActivity {
@@ -106,8 +105,8 @@ public class NotificationActivity extends AppCompatActivity {
                 @Override
                 public boolean onQueryTextSubmit(String query) {
                     Log.i("onQueryTextSubmit", query);
-                    Fragment currentFragment = ((FragmentStatePagerAdapter) viewPager.getAdapter())
-                            .getItem(tabLayout.getSelectedTabPosition());
+                    Fragment currentFragment = ((PagerAdapter) viewPager.getAdapter())
+                            .instantiateItem(viewPager, tabLayout.getSelectedTabPosition());
                     if (currentFragment instanceof MessageFragment) {
                         ((MessageFragment) currentFragment).searchMessage(query);
                     }
