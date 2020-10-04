@@ -63,17 +63,11 @@ public class MessageFragment extends Fragment {
     private String mParam1;
     private String mParam2;
     private String category;
-    private String qStr;
+    private String qStr = "";
 
     public MessageFragment(String category) {
         // Required empty public constructor
         this.category = category;
-    }
-
-    public MessageFragment(String category, String q) {
-        // Required empty public constructor
-        this.category = category;
-        this.qStr = q;
     }
 
     /**
@@ -105,7 +99,12 @@ public class MessageFragment extends Fragment {
     }
 
     public void searchMessage(String searchKey) {
-        Toast.makeText(getContext(), "Search Called", Toast.LENGTH_LONG).show();
+        Log.d("searchMessage", searchKey);
+        rowItems = new ArrayList<Notifications>();
+        this.qStr = searchKey;
+        if(isVisible()){
+            getNotifications(userid, project, 0, 0);
+        }
     }
 
     private void getNotifications(final int userid, final String project, final int adapterChangeFlag, final int offset) {
@@ -151,6 +150,7 @@ public class MessageFragment extends Fragment {
                     params.put("project", project);
                     params.put("offset", String.valueOf(offset));
                     params.put("category", category);
+                    params.put("qStr", qStr);
                     return params;
                 }
             };
