@@ -102,11 +102,14 @@ public class MessageFragment extends Fragment {
         Log.d("searchMessage", searchKey);
         rowItems = new ArrayList<Notifications>();
         this.qStr = searchKey;
+        loadingProgressBar = rootView.findViewById(R.id.loading);
+        loadingProgressBar.setVisibility(View.VISIBLE);
         getNotifications(userid, project, 0, 0);
     }
 
     private void getNotifications(final int userid, final String project, final int adapterChangeFlag, final int offset) {
         Log.d("Function Open", "getNotifications");
+        Log.d("qStr", qStr);
         try {
             final Context context = getActivity().getApplicationContext();
             final RequestQueue requestQueue = Volley.newRequestQueue(context);

@@ -7,6 +7,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
@@ -96,6 +99,18 @@ public class NotificationActivity extends AppCompatActivity {
         if (searchView != null) {
             searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
 
+            searchView.setOnCloseListener(new SearchView.OnCloseListener() {
+                @Override
+                public boolean onClose() {
+                    Fragment currentFragment = ((PagerAdapter) viewPager.getAdapter())
+                            .instantiateItem(viewPager, tabLayout.getSelectedTabPosition());
+                    if (currentFragment instanceof MessageFragment) {
+                        ((MessageFragment) currentFragment).searchMessage("");
+                    }
+                    return false;
+                }
+            });
+
             SearchView.OnQueryTextListener queryTextListener = new SearchView.OnQueryTextListener() {
                 @Override
                 public boolean onQueryTextChange(String newText) {
@@ -112,6 +127,7 @@ public class NotificationActivity extends AppCompatActivity {
                     }
                     return true;
                 }
+
             };
             searchView.setOnQueryTextListener(queryTextListener);
         }
