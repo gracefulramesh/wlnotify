@@ -7,4 +7,5 @@ public class Config {
     public static final String TOKEN_SAVE_URL = SERVER_HOST + "SaveToken.php";
     public static final String PROJECTS_URL = SERVER_HOST + "Projects.php";
     public static final String NOTIFICATIONS_URL = SERVER_HOST + "Notifications.php";
+    public static final String FILTER_ADD = SERVER_HOST+ "FilterAdd.php";
 }

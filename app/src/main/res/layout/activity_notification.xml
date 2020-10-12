@@ -43,16 +43,15 @@
         app:layout_constraintTop_toBottomOf="@+id/tab_layout" />
 
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:src="@drawable/add"
+    <!--<com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/primaryTextColor"
-        android:layout_margin="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toLeftOf="parent" />
-
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar"
+        android:backgroundTint="@color/primaryTextColor"
+        app:srcCompat="@drawable/add" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
